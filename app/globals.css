@@ -42,9 +42,14 @@ hr {
   margin: 20px 0;
 }
 
-nav {
+header {
   width: 50%;
   margin-left: 50%;
+}
+
+footer {
+  width: 80%;
+  margin: 0 auto;
 }
 
 nav ul {
@@ -59,7 +64,7 @@ nav ul {
 
 nav li {
   border: 1px solid white;
-  width: 30%;
+  width: 20%;
   text-align: center;
   padding: 10px;
   border-radius: 1em;
@@ -73,4 +78,48 @@ nav li {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+main {
+  font-size: 1.5em;
+  flex: 1;
+}
+
+input, textarea {
+  all: unset;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#send {
+  background: green;
+  color: white;
+  border: none;
+  width: 25%;
+  height: 2em;
+  display: block;
+  margin: 8px auto;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.firstname, .lastname {
+  display: inline-block;
+  width: 50%;
+}
+
+.pfp {
+  border-radius: 50%;
+}
+
+#me {
+  display: flex;
+  align-items: center;
+  width: 75%;
+  margin: 4em auto;
+  gap: 2em;
+  justify-content: space-between;
 }

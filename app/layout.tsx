@@ -29,9 +29,28 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div id="container">
           <h1 className="topleft">Will Scott | Learning Next.js development</h1>
-          <Navbar />
+          <header><Navbar /></header>
           <hr />
           {children}
+          <hr style={{marginTop:'auto'}} />
+          <footer>
+            <nav>
+              <ul>
+                {(()=>{
+                  let links = {
+                    'https://github.com/wscott20': 'GitHub',
+                    'https://www.linkedin.com/in/will-scott-6a2718377': 'LinkedIn',
+                    '/Resume.pdf': 'Resume',
+                  };
+                  return Object.entries(links).map(([path, label]) => (
+                    <li key={path}>
+                      {label == 'Resume' ? <a href={path} download='Resume.pdf'>{label}</a> : <a href={path}>{label}</a>}
+                    </li>
+                  ));
+                })()}
+              </ul>
+            </nav>
+          </footer>
         </div>
       </body>
     </html>

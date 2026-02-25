@@ -1,13 +1,11 @@
 'use client';
 import styles from "@/page.module.css";
-import { useState } from "react";
-function onSubmit(ev: React.FormEvent<HTMLFormElement>) {
-  ev.preventDefault();
-  let formData = new FormData(ev.target as HTMLFormElement);
-  formData.append("access_key", "109c5646-cdaa-4bc2-b126-c624c4dca9ec");
+import { useForm } from "react-hook-form";
+import HCaptcha from '@hcaptcha/react-hcaptcha';
+function onSubmit(data: any) {
   fetch("https://api.web3forms.com/submit", {
     method: "POST",
-    body: formData,
+    body: data,
   }).then((res) => res.json()).then((json) => {
     if (json.success) {
       alert("Message sent successfully!");
@@ -15,14 +13,16 @@ function onSubmit(ev: React.FormEvent<HTMLFormElement>) {
       alert("Failed to send message.");
     }
   }).catch((error) => {
-    alert("An error occurred while sending the message.");
+    alert("An error occurred while sending the message.\n" + error.message);
   });
 }
 export default function Contact() {
+  let { register, handleSubmit, setValue } = useForm(),
+  onHCaptchaChange = (token: string) => setValue("h-captcha-response", token);
   return (
     <div className="page">
       <main className={styles.main}>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="firstname">
             <label htmlFor="firstname">First Name:</label>
             <br />
@@ -43,6 +43,11 @@ export default function Contact() {
             <br />
             <textarea id="message" name="message" rows={4} cols={50} />
           </div>
+          <HCaptcha
+            sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+            reCaptchaCompat={false}
+            onVerify={onHCaptchaChange} 
+          /> 
           <button type="submit" id="send">Send</button>
         </form>
       </main>

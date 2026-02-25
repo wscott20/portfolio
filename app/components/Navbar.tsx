@@ -15,7 +15,9 @@ export default function Navbar() {
     <nav>
       <ul>
         {Object.entries(links).map(([path, label]) => (
-          <li key={path} className={pathname === path ? 'active' : ''}>
+          <li onClick={e=>
+            e.currentTarget.querySelector('a')?.click()
+          } key={path} className={pathname === path ? 'active' : undefined}>
             <Link href={path}>
               {label}
             </Link>

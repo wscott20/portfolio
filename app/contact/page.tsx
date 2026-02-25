@@ -20,7 +20,7 @@ export default function Contact() {
   let [email,setEmail] = useState('');
   let [message,setMessage] = useState('');
   return (
-    <div className={styles.page}>
+    <div className="page">
       <main className={styles.main}>
         <form onSubmit={e=>{
           e.preventDefault();

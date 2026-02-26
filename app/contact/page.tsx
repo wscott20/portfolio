@@ -44,6 +44,7 @@ export default function Contact() {
             <textarea id="message" name="message" rows={4} cols={50} />
           </div>
           <HCaptcha
+            style={{ margin: "20px auto" }}
             sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
             reCaptchaCompat={false}
             onVerify={onHCaptchaChange} 

@@ -5,7 +5,7 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 function onSubmit(data: any) {
   fetch("https://api.web3forms.com/submit", {
     method: "POST",
-    body: data,
+    body: JSON.stringify(data),
   }).then((res) => res.json()).then((json) => {
     if (json.success) {
       alert("Message sent successfully!");

@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div id="container">
-          <h1 className="topleft">Will Scott | Portfolio</h1>
+          <h1 className="topleft">Will Scott | <span style={{color: 'hsl(202, 100%, 55%)'}}>Portfolio</span></h1>
           <header><Navbar /></header>
           <hr />
           {children}

@@ -15,7 +15,7 @@ export default function Home() {
           />
           <div id="text">
             <h2>Will Scott</h2>
-            <h3>A bit about me</h3>
+            <h3 style={{color: 'hsl(202, 100%, 55%)'}}>A bit about me</h3>
             <p>
               Early stage developer hoping to learn and grow in the field of computer programming.
               I'm exploring a variety of technologies and languages, building small projects along the way to learn how things work and discover what excites me most.

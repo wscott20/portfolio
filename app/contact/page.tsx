@@ -3,6 +3,7 @@ import styles from "@/page.module.css";
 import { useForm } from "react-hook-form";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 function onSubmit(data: any) {
+  console.log(JSON.stringify(data, null, 4));
   if (!data["h-captcha-response"]) {
     alert("Please complete the hCaptcha.");
     return;

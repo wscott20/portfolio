@@ -2,8 +2,8 @@
 import styles from "@/page.module.css";
 import { useForm } from "react-hook-form";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
+import { useEffect } from "react";
 function onSubmit(data: any) {
-  console.log(JSON.stringify(data, null, 4));
   if (!data["h-captcha-response"]) {
     alert("Please complete the hCaptcha.");
     return;
@@ -30,6 +30,9 @@ function onSubmit(data: any) {
 export default function Contact() {
   let { register, handleSubmit, setValue } = useForm(),
   onHCaptchaChange = (token: string) => setValue("h-captcha-response", token);
+  useEffect(() => {
+    register('h-captcha-response')
+  }, [register])
   return (
     <div className="page">
       <main className={styles.main}>
@@ -37,17 +40,17 @@ export default function Contact() {
           <div className="firstname">
             <label htmlFor="firstname">First Name:</label>
             <br />
-            <input type="text" id="firstname" name="firstname" />
+            <input type="text" id="firstname" name="firstname" {...register("firstname")} />
           </div>
           <div className="lastname">
             <label htmlFor="lastname">Last Name:</label>
             <br />
-            <input type="text" id="lastname" name="lastname" />
+            <input type="text" id="lastname" name="lastname" {...register("lastname")} />
           </div>
           <div className="email">
             <label htmlFor="email">Email:</label>
             <br />
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email" {...register("email")} />
           </div>
           <div className="message">
             <label htmlFor="message">Message:</label>
@@ -58,7 +61,7 @@ export default function Contact() {
             <HCaptcha
               sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
               reCaptchaCompat={false}
-              onVerify={onHCaptchaChange} 
+              onVerify={onHCaptchaChange}
             />
           </div>
           <button type="submit" id="send">Send</button>

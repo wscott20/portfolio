@@ -3,9 +3,19 @@ import styles from "@/page.module.css";
 import { useForm } from "react-hook-form";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 function onSubmit(data: any) {
+  if (!data["h-captcha-response"]) {
+    alert("Please complete the hCaptcha.");
+    return;
+  }
   fetch("https://api.web3forms.com/submit", {
     method: "POST",
-    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      ...data,
+      access_key: '109c5646-cdaa-4bc2-b126-c624c4dca9ec'
+    }),
   }).then((res) => res.json()).then((json) => {
     if (json.success) {
       alert("Message sent successfully!");

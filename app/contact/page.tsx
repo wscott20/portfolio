@@ -40,22 +40,22 @@ export default function Contact() {
           <div className="firstname">
             <label htmlFor="firstname">First Name:</label>
             <br />
-            <input type="text" id="firstname" name="firstname" {...register("firstname")} />
+            <input type="text" id="firstname" {...register("firstname")} />
           </div>
           <div className="lastname">
             <label htmlFor="lastname">Last Name:</label>
             <br />
-            <input type="text" id="lastname" name="lastname" {...register("lastname")} />
+            <input type="text" id="lastname" {...register("lastname")} />
           </div>
           <div className="email">
             <label htmlFor="email">Email:</label>
             <br />
-            <input type="email" id="email" name="email" {...register("email")} />
+            <input type="email" id="email" {...register("email")} />
           </div>
           <div className="message">
             <label htmlFor="message">Message:</label>
             <br />
-            <textarea id="message" name="message" rows={4} cols={50} />
+            <textarea id="message" {...register("message")} rows={4} cols={50} />
           </div>
           <div style={{margin: '20px auto', width: 'fit-content'}}>
             <HCaptcha

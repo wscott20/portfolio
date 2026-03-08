@@ -3,6 +3,7 @@ import styles from "@/page.module.css";
 import { useForm } from "react-hook-form";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { useEffect } from "react";
+import Image from "next/image";
 function onSubmit(data: any) {
   if (!data["h-captcha-response"]) {
     alert("Please complete the hCaptcha.");
@@ -35,6 +36,19 @@ export default function Contact() {
   }, [register])
   return (
     <div className="page">
+      <Image 
+        src='/profile-pic.jpeg'
+        alt='Profile picture'
+        className="pfp"
+        width={100}
+        height={100}
+        style={{
+          float: 'left',
+          position: 'relative',
+          top: '1em',
+          left: '2em'
+        }}
+      />
       <main className={styles.main}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="firstname">

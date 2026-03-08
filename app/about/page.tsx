@@ -3,7 +3,7 @@ export default function About() {
   return (
     <div className="page">
       <main className={styles.main}>
-        <p>Hi, I'm Will Scott. I'm interested in IT and computer programming and enjoy experimenting with various projects to see what I can build.
+        <p>Welcome! I'm Will Scott. I'm interested in IT and computer programming and enjoy experimenting with various projects to see what I can build.
           Right now I'm focused on web development, robotics programming, and general software work, though I'm open to other fields.
           I aim to approach every job with openness, integrity, and humility — values I hope to cultivate over time.
           I also believe in being honest, patient, and willing to learn from mistakes as I develop my skills.</p>
